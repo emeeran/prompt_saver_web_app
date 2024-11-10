@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2>Saved Prompts</h2>
+    <div class="prompt-list">
+        {% for prompt in prompts %}
+            <div class="prompt-item">
+                <h3>{{ prompt.title }}</h3>
+                <p>{{ prompt.prompt }}</p>
+                <a href="{{ url_for('edit_prompt', id=prompt.id) }}">Edit</a>
+                <form action="{{ url_for('delete_prompt', id=prompt.id) }}" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{{ url_for('new_prompt') }}">New Prompt</a>
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="post" class="prompt-form">
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title" value="{{ prompt.title }}" required>
+    <label for="prompt">Prompt:</label>
+    <textarea name="prompt" id="prompt" required>{{ prompt.prompt }}</textarea>
+    <button type="submit">Update</button>
+</form>
+{% endblock %}

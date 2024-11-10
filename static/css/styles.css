@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+}
+header {
+    background-color: #f8f9fa;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+.prompt-list {
+    display: flex;
+    flex-direction: column;
+}
+.prompt-item {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+.prompt-form {
+    display: flex;
+    flex-direction: column;
+}
+.prompt-form label {
+    margin-top: 10px;
+}
+.prompt-form input, .prompt-form textarea {
+    padding: 5px;
+    margin-top: 5px;
+}
+.flash-messages {
+    list-style-type: none;
+    padding: 0;
+}
+.flash-messages li {
+    padding: 10px;
+    margin-bottom: 5px;
+}
+.flash-messages .success {
+    background-color: #d4edda;
+}
+.flash-messages .error {
+    background-color: #f8d7da;
+}
