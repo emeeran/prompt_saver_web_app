@@ -2,24 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Prompt Saver Web App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Prompt Saver{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <header>
-        <h1>Prompt Saver Web App</h1>
-    </header>
-    {% with messages = get_flashed_messages(with_categories=true) %}
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% with messages = get_flashed_messages() %}
         {% if messages %}
-            <ul class="flash-messages">
-                {% for category, message in messages %}
-                    <li class="{{ category }}">{{ message }}</li>
-                {% endfor %}
-            </ul>
+            {% for message in messages %}
+                <div class="flash-message">{{ message }}</div>
+            {% endfor %}
         {% endif %}
     {% endwith %}
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+    {% block content %}{% endblock %}
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>

@@ -1,11 +1,11 @@
-import os
 import resend
+from config import Config
 
 
-class ResendClient:
-    def __init__(self, api_key):
-        self.api_key = api_key
-        resend.api_key = api_key
+class ResendService:
+    def __init__(self, api_key=None):
+        self.api_key = api_key or Config.RESEND_API_KEY
+        resend.api_key = self.api_key
 
     def send_email(self, from_email, to_email, subject, html_content):
         try:
