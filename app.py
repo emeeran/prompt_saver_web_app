@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from models import db, Prompt
 from config import Config
 from email_service import ResendService
-from resend_service import Resend
 
 
 app = Flask(__name__)
